@@ -146,7 +146,7 @@ def getData():
         soup = BeautifulSoup(pageSource, 'html.parser')
 
         if (browser.title == "Problemset - Codeforces"):
-            totalPage = 1
+            totalPage = 85
             closeBrowser(browser)
             for page in range(1, totalPage+1):
                 print("----fetching page-----")
