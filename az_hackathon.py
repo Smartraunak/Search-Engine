@@ -66,7 +66,7 @@ def closeBrowser(driver):
 
 
 def fetchdes(pageUrl, title):
-    sleepTime = 1
+    sleepTime = 3
     browser = openBrowser(pageUrl)
     time.sleep(sleepTime)
     pageSource = browser.page_source
@@ -79,7 +79,7 @@ def fetchdes(pageUrl, title):
         questiondis = newSoup.find('div', class_='_1l1MA')
         paragraphs = [p for p in questiondis.find_all('p') if not p.find('strong', class_='example')]
         paragraph_text = [p.get_text(strip=True) for p in paragraphs]
-        paragraph_text='/n'.join(paragraph_text)
+        paragraph_text=' '.join(paragraph_text)
         qusetionDescription.append(paragraph_text)
         print("------Done")
         closeBrowser(browser)
