@@ -1,0 +1,374 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>AlgoQuest</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static '/assets/img/favicon.png'%}" rel="icon">
+  <link href="{% static '/assets/img/apple-touch-icon.png'%}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static '/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static '/assets/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center ">
+    <div class="container-fluid container-xxl d-flex align-items-center">
+
+      <div id="logo" class="me-auto">
+        <!-- Uncomment below if you prefer to use a text logo -->
+        <h1><a href="index.html">ALGO<span>QUEST</span></a></h1>
+        <!-- <a href="index.html" class="scrollto"><img src="{% static/assets/img/logo.png" alt="" title=""></a> -->
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="https://codeforces.com/problemset">Codeforces</a></li>
+          <li><a class="nav-link scrollto" href="https://www.codechef.com/practice">Codechef</a></li>
+          <li><a class="nav-link scrollto" href="https://leetcode.com/problemset/all/">LeetCode</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      <a class="buy-tickets scrollto" href="#search">Search</a>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
+      <h1 class="mb-4 pb-0">The Comprhensive<br><span>DSA Problem</span> Repository</h1>
+      
+      <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
+      <a href="#about" class="about-btn scrollto">About AlgoQuest</a>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-6">
+            <h2>About AlgoQuest</h2>
+            <p>AlgoQuest is a revolutionary website designed to be a one-stop solution for all your Data Structures and Algorithms (DSA)
+               problem-solving needs. With an extensive collection of problems sourced from various platforms and competitions, 
+               AlgoQuest aims to simplify the process of finding, practicing, and mastering DSA concepts..</p>
+          </div>
+          <div class="col-lg-6" style="padding-left: 300px;">
+            <h3>Features</h3>
+            <ul>
+              <li>Vast Problem Library</li>
+              <li>Detailed Problem Descriptions</li>
+              <li>Tag-Based Questions</li>
+              <li>Intelligent Search</li>
+            </ul>
+            
+          </div>
+          
+        </div>
+      </div>
+    </section><!-- End About Section -->
+    <!--Search Section-->
+    <section id="search">
+        <div class="s010" data-aos="fade-up">
+        <form action="{% url 'recommend_questions' %}" method="post">
+          {% csrf_token %}
+          <div class="section-header">
+            <h2>Search Questions</h2>
+          </div>
+          <div class="inner-form">
+            <div class="basic-search">
+              <div class="input-field">
+                <input id="search" type="text" placeholder="Type Keywords" name="user_input"/>
+                <div class="icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="row third" style="margin-left:560px ; margin-top: 15px;">
+              <div class="input-field">
+                <div class="group-btn">
+                  <button class="btn-delete" id="delete" type="reset">RESET</button>
+                  <button class="btn-search" type="submit">SEARCH</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
+        </div>
+      
+
+    </section>
+
+    <!-- ======= Speakers Section ======= -->
+    <section id="speakers">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Classical Questions</h2>
+          <p>Here are some of frequently searched questions</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker1" data-aos="fade-up" data-aos-delay="100">
+              <img src="{%static 'assets/img/speakers/1.png' %}" alt="Speaker 1" class="img-fluid">
+              <div class="details">
+                <h3><a href="https://leetcode.com/problems/longest-common-subsequence/">Longest Common Subsequence</a></h3>
+                <p>LeetCode</p>
+                <div class="social">
+                  <a href="https://leetcode.com/problems/longest-common-subsequence/">View Question  <i class="bi bi-arrow-right-circle-fill" style="padding-left:20px ;"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker1" data-aos="fade-up" data-aos-delay="100">
+              <img src="{%static 'assets/img/speakers/1.webp' %}" alt="Speaker 1" class="img-fluid">
+              <div class="details">
+                <h3><a href="https://practice.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1">Knapsack</a></h3>
+                <p>GeeksforGeeks</p>
+                <div class="social">
+                  <a href="https://practice.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1">View Question  <i class="bi bi-arrow-right-circle-fill" style="padding-left:20px ;"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker1" data-aos="fade-up" data-aos-delay="100">
+              <img src="{%static 'assets/img/speakers/3.png' %}" alt="Speaker 1" class="img-fluid">
+              <div class="details">
+                <h3><a href="https://www.interviewbit.com/problems/painters-partition-problem/">Painters Partition Problem</a></h3>
+                <p>Interviewbit</p>
+                <div class="social">
+                  <a href="https://www.interviewbit.com/problems/painters-partition-problem/">View Question  <i class="bi bi-arrow-right-circle-fill" style="padding-left:20px ;"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker1" data-aos="fade-up" data-aos-delay="100">
+              <img src="{%static 'assets/img/speakers/2.webp' %}" alt="Speaker 1" class="img-fluid">
+              <div class="details">
+                <h3><a href="https://practice.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1">Dijkstra Algorithm</a></h3>
+                <p>GeeksforGeeks</p>
+                <div class="social">
+                  <a href="https://practice.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1">View Question  <i class="bi bi-arrow-right-circle-fill" style="padding-left:20px ;"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker1" data-aos="fade-up" data-aos-delay="100">
+              <img src="{%static 'assets/img/speakers/2.png' %}" alt="Speaker 1" class="img-fluid">
+              <div class="details">
+                <h3><a href="https://www.interviewbit.com/problems/nqueens/">N-Queen</a></h3>
+                <p>Interviewbit</p>
+                <div class="social">
+                  <a href="https://www.interviewbit.com/problems/nqueens/">View Question  <i class="bi bi-arrow-right-circle-fill" style="padding-left:20px ;"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker1" data-aos="fade-up" data-aos-delay="100">
+              <img src="{%static 'assets/img/speakers/7.jpg' %}" alt="Speaker 1" class="img-fluid">
+              <div class="details">
+                <h3><a href="https://leetcode.com/problems/longest-increasing-subsequence">Longest Increasing Subsequence</a></h3>
+                <p>LeetCode</p>
+                <div class="social">
+                  <a href="https://leetcode.com/problems/longest-increasing-subsequence">View Question  <i class="bi bi-arrow-right-circle-fill" style="padding-left:20px ;"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+            </div>
+      </div>
+          
+
+    </section><!-- End Speakers Section -->
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="section-bg">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Contact Us</h2>
+          <p>Open to Query</p>
+        </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="bi bi-geo-alt"></i>
+              <h3>Address</h3>
+              <address>A108 Gupta Street, ND 535022, India</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="bi bi-phone"></i>
+              <h3>Phone Number</h3>
+              <p><a href="tel:+155895548855">+91 97842 46546</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="bi bi-envelope"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:info@example.com">aquest@gmail.com</a></p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form">
+          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+              </div>
+              <div class="form-group col-md-6 mt-3 mt-md-0">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+              </div>
+            </div>
+            <div class="form-group mt-3">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group mt-3">
+              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+            </div>
+            <div class="my-3">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
+            </div>
+            <div class="text-center"><button type="submit">Send Message</button></div>
+          </form>
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h1><a href="index.html">ALGO<span>QUEST</span></a></h1><br/>
+            <p>AlgoQuest is a revolutionary website designed to be a one-stop solution for all your Data Structures and Algorithms (DSA)
+               problem-solving needs. <p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://codeforces.com/problemset">Codeforces</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://www.codechef.com/practice">Codechef</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://leetcode.com/problemset/all/">LeetCode</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://codeforces.com/problemset">Codeforces</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://www.codechef.com/practice">Codechef</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://leetcode.com/problemset/all/">LeetCode</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+              A108 Gupta Street <br>
+              New Delhi, ND 535022<br>
+              India <br>
+              <strong>Phone:</strong> +91 97842 46546<br>
+              <strong>Email:</strong> aquest@gmail.com<br>
+            </p>
+
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>AlgoQuest</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!--
+        All the links in the footer should remain intact.
+        You can delete the links only if you purchased the pro version.
+        Licensing information: https://bootstrapmade.com/license/
+        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
+      -->
+        Designed by <a href="https://bootstrapmade.com/">Raunak</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static '/assets/vendor/aos/aos.js'%}"></script>
+  <script src="{% static '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{% static '/assets/vendor/glightbox/js/glightbox.min.js'%}"></script>
+  <script src="{% static '/assets/vendor/swiper/swiper-bundle.min.js'%}"></script>
+  <script src="{% static '/assets/vendor/php-email-form/validate.js'%}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static '/assets/js/main.js'%}"></script>
+
+</body>
+
+</html>
